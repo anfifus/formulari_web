@@ -2,9 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import {createBrowserRouter, Outlet} from 'react-router';
 import {RouterProvider} from 'react-router-dom';
-import {Link} from 'react-router-dom';
+import {useEffect} from 'react';
+import {Link,useParams} from 'react-router-dom';
 import Formulari from'./components/FormulariContacte';
 import dadesUser from'./components/User';
+
+
 const router = createBrowserRouter([
   {
     path:"/",
@@ -14,14 +17,22 @@ const router = createBrowserRouter([
         index:true,
         element:<Formulari />
       },
-      {
-        path:"/:id",
-        element:<dadesUser />
-      }
+      
     ]
   }
 ])
 /*<Formulari />*/
+const {id} = useParams();
+useEffect(()=>{
+  setRutes([
+    {
+        path:"/Usuari/:id",
+        element:<dadesUser />
+    }
+  ]);
+},[id]);
+
+router = createBrowserRouter(rutes);
 
 function Navigator(){
    /*Canviar a un altre format*/
