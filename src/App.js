@@ -8,7 +8,7 @@ import Formulari from'./components/FormulariContacte';
 import dadesUser from'./components/User';
 
 
-const router = createBrowserRouter([
+const [rutes,setRutes] = useState([
   {
     path:"/",
     element:<Navigator/>,
@@ -32,7 +32,7 @@ useEffect(()=>{
   ]);
 },[id]);
 
-router = createBrowserRouter(rutes);
+const router = createBrowserRouter(rutes);
 
 function Navigator(){
    /*Canviar a un altre format*/
