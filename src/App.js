@@ -8,7 +8,24 @@ import Formulari from'./components/FormulariContacte';
 import dadesUser from'./components/User';
 
 
-const [rutes,setRutes] = useState([
+
+
+function Navigator(){
+   /*Canviar a un altre format*/
+  return (
+    <div>
+      <nav>
+        <Link to="/">Formulari de registre</Link>
+      </nav>
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
+}
+
+function App() {
+  const [rutes,setRutes] = useState([
   {
     path:"/",
     element:<Navigator/>,
@@ -34,21 +51,6 @@ useEffect(()=>{
 
 const router = createBrowserRouter(rutes);
 
-function Navigator(){
-   /*Canviar a un altre format*/
-  return (
-    <div>
-      <nav>
-        <Link to="/">Formulari de registre</Link>
-      </nav>
-      <main>
-        <Outlet />
-      </main>
-    </div>
-  );
-}
-
-function App() {
   return <RouterProvider router={router}/>
 }
 
