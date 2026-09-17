@@ -5,7 +5,7 @@ export default function User(){
 
 
        
-        const [id,setId] = useState("");
+        const [id,setId] = useState(0);
 
         function handleChange(e)
         {

@@ -11,7 +11,6 @@ import axios from 'axios';
         useEffect(() => {
             axios.get(`https://formulari-5r2j.onrender.com/usuari/${id}`)
             .then((resposta) =>{
-                console.log(resposta.data);
                 setUsuari(resposta.data);
                 
             })
@@ -23,7 +22,7 @@ import axios from 'axios';
 
         if(error) return <p style={{color:'red'}}>{error}</p>;
         if(!usuari) return <p>Carregant dades de l'usuari...</p>;
-
+        if(usuari)
         return (
             <div>
                 <h2>Dades Usuari</h2>
