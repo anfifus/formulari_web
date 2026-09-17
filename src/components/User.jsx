@@ -25,11 +25,15 @@ function User(){
 
         if(error) return <p style={{color:'red'}}>{error}</p>;
         if(!usuari) return <p>Carregant dades de l'usuari...</p>;
+
         return (
 
             <div>
-                <label>Identificador usuari</label>
-                <input type='number' onChange={handleChange} />
+                <form>
+                  <label>Identificador usuari</label>
+                  <input type='number' onChange={handleChange} />
+                </form>
+                
 
                 <div>
                 <h2>Dades Usuari</h2>
