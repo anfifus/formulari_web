@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
-import Resultat from'./components/Resultat';
+import Resultat from'Resultat';
 export default function User(){
 
 
