@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import {createBrowserRouter} from 'react-router';
+import {RouterProvider} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Formulari from'./components/FormulariContacte';
 import dadesUser from'./components/User';
 const router = createBrowserRouter([

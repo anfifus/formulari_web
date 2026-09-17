@@ -38,7 +38,7 @@ export default function FormulariContacte(){
 	  e.preventDefault();
 	  if(!validate()){return;}
 	  console.log("Submitting",form);
-	  axios.post('http://localhost:8080/usuari',form)
+	  axios.post('https://formulari-5r2j.onrender.com/usuari',form)
 		.then(response => {alert("Dades enviades");})
 		.catch(error => {console.log("Error",error);});
 		

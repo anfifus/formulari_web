@@ -9,7 +9,7 @@ function User(){
     const [error,setError] = useState(null);
 
     useEffect(() => {
-        axios.get('https://formulari-5r2j.onrender.com{id}')
+        axios.get('https://formulari-5r2j.onrender.com/usuari/{id}')
         .then((resposta) =>{
             setUsuari(resposta.data);
         })
