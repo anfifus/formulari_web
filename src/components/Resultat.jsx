@@ -27,7 +27,6 @@ import axios from 'axios';
 
         if(error) return <p style={{color:'red'}}>{error}</p>;
         if(!usuari) return <p>Carregant dades de l'usuari...</p>;
-        if(usuari)
         return (
             <div>
                 <h2>Dades Usuari</h2>
