@@ -11,6 +11,7 @@ import axios from 'axios';
         useEffect(() => {
             axios.get(`https://formulari-5r2j.onrender.com/usuari/${id}`)
             .then((resposta) =>{
+                setError(null);
                 setUsuari(resposta.data);
                 
             })
