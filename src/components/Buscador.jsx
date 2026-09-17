@@ -4,17 +4,9 @@ import Resultat from'./Resultat';
 export default function User(){
 
 
-        const [buscador,setValor] = useState({
-            id:0
-        }) ;
+       
         const [id,setId] = useState("");
       
-
-        function handleChange(e)
-        {
-            const[name,value] = e.target;
-            setValor((prev)=>({...prev,[name]:value}));
-        }
 
         function handleChange(e)
         {
@@ -27,9 +19,9 @@ export default function User(){
             <div>
                 <div>
                   <label>Identificador usuari:</label>
-                  <input type='number' value={buscador.id} onChange={handleChange} />
+                  <input type='number' value={id} onChange={handleChange} />
                 </div>
-                <Resultat id={buscador.id}/>
+                <Resultat id={id}/>
             </div>
         );
 }
