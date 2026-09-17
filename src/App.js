@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element:<Navigator/>,
     children: [
       {
-        path:"/Usuari",
+        index:true,
         element:<Formulari />
       },
       {
@@ -28,7 +28,7 @@ function Navigator(){
   return (
     <div>
       <nav>
-        <Link to="/Usuari">Formulari de registre</Link>
+        <Link to="/">Formulari de registre</Link>
         <Link to="/Usuari/:id">Comprovar usuari</Link>
       </nav>
       <main>
