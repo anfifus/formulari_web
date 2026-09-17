@@ -26,6 +26,12 @@ export default function User(){
         if(error) return <p style={{color:'red'}}>{error}</p>;
         if(!usuari) return <p>Carregant dades de l'usuari...</p>;
 
+        function handleChange(e)
+        {
+            const[name,value] = e.target;
+            setValor((prev)=>({...prev,[name]:value}));
+        }
+
         return (
 
             <div>
@@ -61,13 +67,4 @@ export default function User(){
 
             </div>
         );
-    
-
-    function handleChange(e){
-        const[name,value] = e.target;
-        setValor((prev)=>({...prev,[name]:value}));
-    }
-
-
-    
 }
