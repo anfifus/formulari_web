@@ -11,12 +11,11 @@ const router = createBrowserRouter([
     element:<Navigator/>,
     children: [
       {
-        index:true,
-        path:"/",
+        path:"/Usuari",
         element:<Formulari />
       },
       {
-        path:"/getUsuari/:id",
+        path:"/Usuari/:id",
         element:<dadesUser />
       }
     ]
@@ -29,8 +28,8 @@ function Navigator(){
   return (
     <div>
       <nav>
-        <Link to="/">Formulari de registre</Link>
-        <Link to="/getUsuari/:id">Comprovar usuari</Link>
+        <Link to="/Usuari">Formulari de registre</Link>
+        <Link to="/Usuari/:id">Comprovar usuari</Link>
       </nav>
     </div>
   );
