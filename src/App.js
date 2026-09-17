@@ -4,7 +4,7 @@ import {createBrowserRouter, Outlet} from 'react-router';
 import {RouterProvider} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import Formulari from'./components/FormulariContacte';
-import dadesUser from'./components/User';
+import DadesUser from'./components/User';
 const router = createBrowserRouter([
   {
     path:"/",
@@ -15,8 +15,8 @@ const router = createBrowserRouter([
         element:<Formulari />
       },
       {
-        path:"/BuscarUsuari",
-        element:<dadesUser />
+        path:"BuscarUsuari",
+        element:<DadesUser />
       }
     ]
   }
