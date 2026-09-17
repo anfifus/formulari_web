@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 
- export default function Resultat({id})
+ export default function Resultat({id, error, usuari})
  {
    
 
@@ -11,8 +11,12 @@ import axios from 'axios';
         useEffect(() => {
             axios.get(`https://formulari-5r2j.onrender.com/usuari/${id}`)
             .then((resposta) =>{
-                setError(null);
+                
                 setUsuari(resposta.data);
+                if(id === "" || id === null || id === 0){
+                    return;
+                }
+                setError(null);
                 
             })
             .catch((err)=>{
