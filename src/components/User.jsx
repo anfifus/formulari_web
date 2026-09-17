@@ -13,7 +13,7 @@ export default function User(){
         const [error,setError] = useState(null);
 
         useEffect(() => {
-
+            if (!buscador) return;
             axios.get('https://formulari-5r2j.onrender.com/usuari/{buscador.id}')
             .then((resposta) =>{
                 setUsuari(resposta.data);
