@@ -9,7 +9,6 @@ import axios from 'axios';
         const [error,setError] = useState(null);
 
         useEffect(() => {
-            if (!buscador) return;
             axios.get('https://formulari-5r2j.onrender.com/usuari/{id}')
             .then((resposta) =>{
                 setUsuari(resposta.data);
