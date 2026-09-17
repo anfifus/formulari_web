@@ -1,20 +1,13 @@
-import {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
-import axios from 'axios';
-
-export default function User(){
-
-
-        const [buscador,setValor] = useState({
-            id:0
-        }) ;
+ export default function Resultat({id})
+ {
+   
 
         const [usuari,setUsuari] = useState(null);
         const [error,setError] = useState(null);
 
         useEffect(() => {
             if (!buscador) return;
-            axios.get('https://formulari-5r2j.onrender.com/usuari/{buscador.id}')
+            axios.get('https://formulari-5r2j.onrender.com/usuari/{id}')
             .then((resposta) =>{
                 setUsuari(resposta.data);
             })
@@ -22,27 +15,12 @@ export default function User(){
                 console.error("Error recuperant l'usuari",err);
                 setError("No s'ha pogut trobar l'usuari amb la id corresponent");
             })
-        },[buscador.id]);
+        },[id]);
 
         if(error) return <p style={{color:'red'}}>{error}</p>;
         if(!usuari) return <p>Carregant dades de l'usuari...</p>;
 
-        function handleChange(e)
-        {
-            const[name,value] = e.target;
-            setValor((prev)=>({...prev,[name]:value}));
-        }
-
-        return (
-
-            <div>
-                <div>
-                  <label>Identificador usuari:</label>
-                  <input type='number' onChange={handleChange} />
-                </div>
-                
-
-                <div>
+        return (<div>
                 <h2>Dades Usuari</h2>
                 <dl>
                     <div>
@@ -64,8 +42,5 @@ export default function User(){
                         <dd>{usuari.missatge}</dd>
                     </div>
                 </dl>
-            </div>
-
-            </div>
-        );
+            </div>);
 }

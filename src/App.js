@@ -4,7 +4,7 @@ import {createBrowserRouter, Outlet} from 'react-router';
 import {RouterProvider} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import Formulari from'./components/FormulariContacte';
-import DadesUser from'./components/User';
+import DadesUser from'./components/Buscador';
 const router = createBrowserRouter([
   {
     path:"/",
