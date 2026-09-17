@@ -19,6 +19,7 @@ export default function FormulariContacte(){
 
 	function validate(){
 	  const newErrors = {};
+	  console.log("La variable té valor: ",form.nom);
 	  if(!form.nom.trim()) newErrors.nom = "Requereix d'un nom";
 	  if(!form.password.trim()) newErrors.password = "Requereix d'un password";
 	  else if(form.password.trim().length < 10) newErrors.password = "La longitud ha de ser major a 10 caràcters";
