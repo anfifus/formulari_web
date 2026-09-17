@@ -29,7 +29,6 @@ function Navigator(){
     <div>
       <nav>
         <Link to="/">Formulari de registre</Link>
-        <Link to="/Usuari/:id">Comprovar usuari</Link>
       </nav>
       <main>
         <Outlet />
