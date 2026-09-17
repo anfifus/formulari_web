@@ -7,14 +7,19 @@ export default function User(){
         const [buscador,setValor] = useState({
             id:0
         }) ;
-
+        const [id,setId] = useState("");
       
 
         function handleChange(e)
         {
-            console.log(e.target.value)
             const[name,value] = e.target;
             setValor((prev)=>({...prev,[name]:value}));
+        }
+
+        function handleChange(e)
+        {
+            const valorRebut = e.target.value;
+            setId(valorRebut);
         }
 
         return (
@@ -22,7 +27,7 @@ export default function User(){
             <div>
                 <div>
                   <label>Identificador usuari:</label>
-                  <input type='number' onChange={handleChange} />
+                  <input type='number' value={buscador.id} onChange={handleChange} />
                 </div>
                 <Resultat id={buscador.id}/>
             </div>
