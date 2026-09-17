@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {createBrowserRouter, Outlet} from 'react-router';
 import {RouterProvider} from 'react-router-dom';
-import {useEffect} from 'react';
+import {useState,useEffect} from 'react';
 import {Link,useParams} from 'react-router-dom';
 import Formulari from'./components/FormulariContacte';
 import dadesUser from'./components/User';
