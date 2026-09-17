@@ -21,7 +21,8 @@ export default function User(){
                   <label>Identificador usuari:</label>
                   <input type='number' value={id} onChange={handleChange} />
                 </div>
-                <Resultat id={id}/>
+                idNum = Number(id);
+                <Resultat id={idNum}/>
             </div>
         );
 }
