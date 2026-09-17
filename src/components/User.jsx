@@ -26,7 +26,12 @@ function User(){
         if(error) return <p style={{color:'red'}}>{error}</p>;
         if(!usuari) return <p>Carregant dades de l'usuari...</p>;
         return (
+
             <div>
+                <label>Identificador usuari</label>
+                <input type='number' onChange={handleChange} />
+
+                <div>
                 <h2>Dades Usuari</h2>
                 <dl>
                     <div>
@@ -49,6 +54,8 @@ function User(){
                     </div>
                 </dl>
             </div>
+
+            </div>
         );
     
 
@@ -57,12 +64,7 @@ function User(){
         setValor((prev)=>({...prev,[name]:value}));
     }
 
-    return(
-        <div>
-                <label>Identificador usuari</label>
-                <input type='number' onChange={handleChange} />
-        </div>
-    );
+
     
 }
 export default User;
