@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
 
-function User(){
+export default function User(){
 
 
         const [buscador,setValor] = useState({
@@ -71,4 +71,3 @@ function User(){
 
     
 }
-export default User;
