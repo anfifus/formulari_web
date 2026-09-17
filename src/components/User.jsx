@@ -35,10 +35,10 @@ export default function User(){
         return (
 
             <div>
-                <form>
+                <div>
                   <label>Identificador usuari</label>
                   <input type='number' onChange={handleChange} />
-                </form>
+                </div>
                 
 
                 <div>
