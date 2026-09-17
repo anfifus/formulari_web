@@ -72,6 +72,6 @@ export default function FormulariContacte(){
 		</div>
 
 		<button type="submit">Submit</button>
-	</form>
-);
+	   </form>
+	);
 }

@@ -3,48 +3,66 @@ import {useParams} from 'react-router-dom';
 import axios from 'axios';
 
 function User(){
-    const {id} = useParams();
 
-    const [usuari,setUsuari] = useState(null);
-    const [error,setError] = useState(null);
 
-    useEffect(() => {
-        axios.get('https://formulari-5r2j.onrender.com/usuari/{id}')
-        .then((resposta) =>{
-            setUsuari(resposta.data);
-        })
-        .catch((err)=>{
-            console.error("Error recuperant l'usuari",err);
-            setError("No s'ha pogut trobar l'usuari amb la id corresponent");
-        })
-    },[id]);
+        const [buscador,setValor] = useState({
+            id:0
+        }) ;
 
-    if(error) return <p style={{color:'red'}}>{error}</p>;
-    if(!usuari) return <p>Carregant dades de l'usuari...</p>;
-    return (
-		<div>
-            <h2>Dades Usuari</h2>
-            <dl>
-                <div>
-                    <dt>Nom</dt>
-                    <dd>{usuari.nom}</dd>
-                </div>
-                <div>
-                    <dt>Password </dt>
-                    <dd>{usuari.password}</dd>
+        const [usuari,setUsuari] = useState(null);
+        const [error,setError] = useState(null);
 
-                </div>
-                <div>
-                    <dt>Correu</dt>
-                    <dd>{usuari.email}</dd>
+        useEffect(() => {
+            axios.get('https://formulari-5r2j.onrender.com/usuari/{buscador.id}')
+            .then((resposta) =>{
+                setUsuari(resposta.data);
+            })
+            .catch((err)=>{
+                console.error("Error recuperant l'usuari",err);
+                setError("No s'ha pogut trobar l'usuari amb la id corresponent");
+            })
+        },[handleChange]);
 
-                </div>
-                <div>
-                    <dt>Missatge</dt>
-                    <dd>{usuari.missatge}</dd>
-                </div>
-            </dl>
+        if(error) return <p style={{color:'red'}}>{error}</p>;
+        if(!usuari) return <p>Carregant dades de l'usuari...</p>;
+        return (
+            <div>
+                <h2>Dades Usuari</h2>
+                <dl>
+                    <div>
+                        <dt>Nom</dt>
+                        <dd>{usuari.nom}</dd>
+                    </div>
+                    <div>
+                        <dt>Password </dt>
+                        <dd>{usuari.password}</dd>
+
+                    </div>
+                    <div>
+                        <dt>Correu</dt>
+                        <dd>{usuari.email}</dd>
+
+                    </div>
+                    <div>
+                        <dt>Missatge</dt>
+                        <dd>{usuari.missatge}</dd>
+                    </div>
+                </dl>
+            </div>
+        );
+    
+
+    function handleChange(e){
+        const[name,value] = e.target;
+        setValor((prev)=>({...prev,[name]:value}));
+    }
+
+    return(
+        <div>
+                <label>Identificador usuari</label>
+                <input type='number' onChange={handleChange} />
         </div>
     );
+    
 }
 export default User;
