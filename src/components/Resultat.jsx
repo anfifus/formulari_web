@@ -9,7 +9,7 @@ import axios from 'axios';
         const [error,setError] = useState(null);
 
         useEffect(() => {
-            axios.get('https://formulari-5r2j.onrender.com/usuari/{id}')
+            axios.get(`https://formulari-5r2j.onrender.com/usuari/${id}`)
             .then((resposta) =>{
                 console.log(resposta.data);
                 setUsuari(resposta.data);
