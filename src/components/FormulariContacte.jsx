@@ -4,6 +4,7 @@ import axios from 'axios';
 export default function FormulariContacte(){
 	const [form, setForm] = useState({
 	nom: "",
+	password: "",
 	email: "",
 	missatge: "",
 	});
@@ -19,6 +20,8 @@ export default function FormulariContacte(){
 	function validate(){
 	  const newErrors = {};
 	  if(!form.nom.trim()) newErrors.nom = "Requereix d'un nom";
+	  if(!form.password.trim()) newErrors.password = "Requereix d'un password";
+	  else if(form.password.trim().length < 10) newErrors.password = "La longitud ha de ser major a 10 caràcters";
 	  if(!form.email.includes("@")) newErrors.email = "Correu invalid";
 	  if(form.missatge.trim().length < 10) newErrors.missatge = "Has de posar un missatge de més de 10 caràcters";
 
@@ -39,7 +42,7 @@ export default function FormulariContacte(){
 		.then(response => {alert("Dades enviades");})
 		.catch(error => {console.log("Error",error);});
 		
- 	  setForm({name:"",email:"",message:""});
+ 	  setForm({name:"",password:"",email:"",message:""});
 	  setErrors({});
 	}
 	
@@ -50,17 +53,22 @@ export default function FormulariContacte(){
 		<div>
 			<label>Nom</label>
 			<input name="nom"  onChange={handleChange} />
-			{errors.nom && <div style={{color:"red"}}>{errors.nom}</div>}
+			{errors.nom && <span style={{color:"red"}}>{errors.nom}</span>}
 		</div>
+        <div>
+        	<label> Password </label>
+        	<input name="password" type="password" onChange={handleChange} />
+        	{errors.password && <span style={{color:"red"}}>{errors.password}</span>}
+ 		</div>
 		<div>
 			<label>Correu</label>
 			<input name="email"  onChange={handleChange} />
-			{errors.email && <div style={{color:"red"}}>{errors.email}</div>}
+			{errors.email && <span style={{color:"red"}}>{errors.email}</span>}
 		</div>
 		<div>
 			<label>Missatge</label>
 			<input name="missatge"  onChange={handleChange} />
-			{errors.missatge && <div style={{color:"red"}}>{errors.missatge}</div>}
+			{errors.missatge && <span style={{color:"red"}}>{errors.missatge}</span>}
 		</div>
 
 		<button type="submit">Submit</button>
