@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 
- export default function Resultat({id, error, usuari})
+ export default function Resultat({id})
  {
    
 
