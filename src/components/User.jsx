@@ -36,7 +36,7 @@ export default function User(){
 
             <div>
                 <div>
-                  <label>Identificador usuari</label>
+                  <label>Identificador usuari:</label>
                   <input type='number' onChange={handleChange} />
                 </div>
                 
