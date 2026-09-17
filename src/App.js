@@ -15,7 +15,7 @@ const router = createBrowserRouter([
         element:<Formulari />
       },
       {
-        path:"/Usuari/:id",
+        path:"/:id",
         element:<dadesUser />
       }
     ]
