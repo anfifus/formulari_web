@@ -6,7 +6,6 @@ export default function User(){
 
        
         const [id,setId] = useState("");
-      
 
         function handleChange(e)
         {
@@ -21,8 +20,8 @@ export default function User(){
                   <label>Identificador usuari:</label>
                   <input type='number' value={id} onChange={handleChange} />
                 </div>
-                idNum = Number(id);
-                <Resultat id={idNum}/>
+               
+                <Resultat id={Number(id)}/>
             </div>
         );
 }
