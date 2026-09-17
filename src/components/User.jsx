@@ -9,33 +9,42 @@ function User(){
     const [error,setError] = useState(null);
 
     useEffect(() => {
-        axios.get('')
-    },[id]
-);
+        axios.get('https://formulari-5r2j.onrender.com{id}')
+        .then((resposta) =>{
+            setUsuari(resposta.data);
+        })
+        .catch((err)=>{
+            console.error("Error recuperant l'usuari",err);
+            setError("No s'ha pogut trobar l'usuari amb la id corresponent");
+        })
+    },[id]);
 
+    if(error) return <p style={{color:'red'}}>{error}</p>;
+    if(!usuari) return <p>Carregant dades de l'usuari...</p>;
     return (
 		<div>
             <h2>Dades Usuari</h2>
             <dl>
                 <div>
                     <dt>Nom</dt>
-                    <dd> </dd>
+                    <dd>{usuari.nom}</dd>
                 </div>
                 <div>
                     <dt>Password </dt>
-                    <dd>  </dd>
+                    <dd>{usuari.password}</dd>
 
                 </div>
                 <div>
                     <dt>Correu</dt>
-                    <dd>  </dd>
+                    <dd>{usuari.email}</dd>
 
                 </div>
                 <div>
                     <dt>Missatge</dt>
-                    <dd>  </dd>
+                    <dd>{usuari.missatge}</dd>
                 </div>
             </dl>
         </div>
-);
+    );
 }
+export default User;
