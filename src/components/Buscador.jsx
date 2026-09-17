@@ -12,6 +12,7 @@ export default function User(){
 
         function handleChange(e)
         {
+            console.log(e.target)
             const[name,value] = e.target;
             setValor((prev)=>({...prev,[name]:value}));
         }
