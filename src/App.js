@@ -2,13 +2,26 @@ import logo from './logo.svg';
 import './App.css';
 import {createBrowserRouter, Outlet} from 'react-router';
 import {RouterProvider} from 'react-router-dom';
-import {useState,useEffect} from 'react';
-import {Link,useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Formulari from'./components/FormulariContacte';
 import dadesUser from'./components/User';
-
-
-
+const router = createBrowserRouter([
+  {
+    path:"/",
+    element:<Navigator/>,
+    children: [
+      {
+        index:true,
+        element:<Formulari />
+      },
+      {
+        path:"/BuscarUsuari",
+        element:<dadesUser />
+      }
+    ]
+  }
+])
+/*<Formulari />*/
 
 function Navigator(){
    /*Canviar a un altre format*/
@@ -16,6 +29,7 @@ function Navigator(){
     <div>
       <nav>
         <Link to="/">Formulari de registre</Link>
+        <Link to="/BuscarUsuari">Buscar usuari</Link>
       </nav>
       <main>
         <Outlet />
@@ -25,32 +39,6 @@ function Navigator(){
 }
 
 function App() {
-  const [rutes,setRutes] = useState([
-  {
-    path:"/",
-    element:<Navigator/>,
-    children: [
-      {
-        index:true,
-        element:<Formulari />
-      },
-      
-    ]
-  }
-])
-/*<Formulari />*/
-const {id} = useParams();
-useEffect(()=>{
-  setRutes([
-    {
-        path:"/Usuari/:id",
-        element:<dadesUser />
-    }
-  ]);
-},[id]);
-
-const router = createBrowserRouter(rutes);
-
   return <RouterProvider router={router}/>
 }
 
