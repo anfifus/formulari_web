@@ -20,7 +20,7 @@ import axios from 'axios';
                 
             })
             .catch((err)=>{
-                console.error("Error recuperant l'usuari",err);
+                console.error("Error recuperant l'usuari",err.response.data);
                 setError("No s'ha pogut trobar l'usuari amb la id corresponent");
             })
         },[id]);

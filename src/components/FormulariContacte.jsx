@@ -40,7 +40,7 @@ export default function FormulariContacte(){
 	  console.log("Submitting",form);
 	  axios.post('https://formulari-5r2j.onrender.com/usuari',form)
 		.then(response => {alert("Dades enviades");})
-		.catch(error => {console.log("Error",error);});
+		.catch(error => {console.log("Error",error.response.data);});
 		
  	  setForm({name:"",password:"",email:"",message:""});
 	  setErrors({});
